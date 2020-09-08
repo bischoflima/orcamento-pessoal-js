@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Orçamento Pessoal</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper blue darken-1">
+            <a href="#" class="brand-logo"> <img class="responsive-img logo" src="../images/logo.png" alt="" srcset="">
+                Orçamento Pessoal</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">Cadastrar Despesas</a></li>
+                <li><a href="#">Listar Despesas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container row">
+        <h4 class="blue-text text-darken-1">Listagem de despesas</h4>
+        <form class="col s12 blue-text text-darken-1">
+            <div class="input-field col s3">
+                <select class="anos">
+                    <option value="" disabled selected>Ano</option>
+
+                </select>
+                <label>Ano</label>
+            </div>
+
+            <div class="input-field col s3">
+                <select class="mes">
+                    <option value="" disabled selected>Mês</option>
+                    <option value="0">Janeiro</option>
+                    <option value="1">Fevereiro</option>
+                    <option value="2">Março</option>
+                    <option value="3">Abril</option>
+                    <option value="4">Maio</option>
+                    <option value="5">Junho</option>
+                    <option value="6">Julho</option>
+                    <option value="7">Agosto</option>
+                    <option value="8">Setembro</option>
+                    <option value="9">Outubro</option>
+                    <option value="10">Novembro</option>
+                    <option value="11">Dezembro</option>
+
+                </select>
+                <label>Mês</label>
+            </div>
+
+            <div class="input-field col s3 dia">
+                <input placeholder="05" id="dia" type="number" class="validate" min="1" max="31">
+                <label for="dia">Dia</label>
+            </div>
+
+            <div class="input-field col s3">
+                <select class="tipo">
+                    <option value="" disabled selected>tipo</option>
+                    <option value="alimentacao">Alimentacao</option>
+                    <option value="educacao">Educação</option>
+                    <option value="lazer">Lazer</option>
+                    <option value="saude">Saude</option>
+                    <option value="transporte">Transporte</option>
+                </select>
+                <label>Tipo</label>
+            </div>
+
+            <div class="input-field col s6">
+                <input placeholder="Descrição" id="descricao" type="text" class="validate">
+                <label for="descricao">Descricao</label>
+            </div>
+            <div class="input-field col s3">
+                <input placeholder="Valor" id="valor" type="number" class="validate" step="0.01">
+                <label for="valor">Valor</label>
+            </div>
+
+            <div class="input-field col s2 right">
+                <a class="waves-effect waves-light btn blue darken-1">
+                    <i class="material-icons">search</i></a>
+            </div>
+        </form>
+
+        <table class="highlight centered striped">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Tipo</th>
+                    <th>Descriçao</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>07 / 09 / 2020</td>
+                    <td>alimentacao</td>
+                    <td>comida</td>
+                    <td>17.75</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer class="page-footer blue darken-1">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Orçamento Pessoal</h5>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © Copyright José Everaldo <span class="anoAtual"></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="../js/Despesa.js"></script>
+    <script src="../js/BD.js"></script>
+    <script src="../js/consulta.js"></script>
+</body>
+
+</html>

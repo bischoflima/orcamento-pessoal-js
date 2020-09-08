@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Orçamento Pessoal</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper blue darken-1">
+            <a href="#" class="brand-logo"> <img class="responsive-img logo" src="../images/logo.png" alt="" srcset="">
+                Orçamento Pessoal</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#">Cadastrar Despesas</a></li>
+                <li><a href="consulta.html">Listar Despesas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container row">
+        <h4 class="blue-text text-darken-1">Cadastre suas despesas</h4>
+        <form class="col s12 blue-text text-darken-1">
+            <div class="input-field col s3">
+                <select class="anos">
+                    <option value="" disabled selected>Ano</option>
+
+                </select>
+                <label>Ano</label>
+            </div>
+
+            <div class="input-field col s3">
+                <select class="mes">
+                    <option value="" disabled selected>Mês</option>
+                    <option value="janeiro">Janeiro</option>
+                    <option value="fevereiro">Fevereiro</option>
+                    <option value="marco">Março</option>
+                    <option value="abril">Abril</option>
+                    <option value="maio">Maio</option>
+                    <option value="junho">Junho</option>
+                    <option value="julho">Julho</option>
+                    <option value="agosto">Agosto</option>
+                    <option value="setembro">Setembro</option>
+                    <option value="outubro">Outubro</option>
+                    <option value="novembro">Novembro</option>
+                    <option value="dezembro">Dezembro</option>
+
+                </select>
+                <label>Mês</label>
+            </div>
+
+            <div class="input-field col s3 dia">
+                <input placeholder="05" id="dia" type="number" class="validate" min="1" max="31">
+                <label for="dia">Dia</label>
+            </div>
+
+            <div class="input-field col s3">
+                <select class="tipo">
+                    <option value="" disabled selected>tipo</option>
+                    <option value="alimentacao">Alimentacao</option>
+                    <option value="educacao">Educação</option>
+                    <option value="lazer">Lazer</option>
+                    <option value="saude">Saude</option>
+                    <option value="transporte">Transporte</option>
+                </select>
+                <label>Tipo</label>
+            </div>
+
+            <div class="input-field col s6">
+                <input placeholder="Descrição" id="descricao" type="text" class="validate">
+                <label for="descricao">Descricao</label>
+            </div>
+            <div class="input-field col s3">
+                <input placeholder="Valor" id="valor" type="number" class="validate" step="0.01">
+                <label for="valor">Valor</label>
+            </div>
+
+            <div class="input-field col s2 right">
+                <a class="waves-effect waves-light btn blue darken-1 adicionar">
+                    <i class="material-icons">add</i></a>
+            </div>
+        </form>
+
+        <!-- Modal Structure -->
+        <div id="modalSucesso" class="modal modalSucesso green-text lighten-2">
+            <div class="modal-content green-text">
+                <h4 class="">Sucesso ao gravar</h4>
+                <p>Os dados foram gravados com sucesso!!!</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat green lighten-2 white-text"  onclick="window.location.reload()">Continuar</a>
+            </div>
+        </div>
+
+        <div id="modalErro" class="modal modalErro red-text accent-2">
+            <div class="modal-content ">
+                <h4>Erro ao gravar</h4>
+                <p>Os dados estão incompletos</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-red btn-flat white-text red accent-2">Voltar e ajustar</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="page-footer blue darken-1">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Orçamento Pessoal</h5>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © Copyright José Everaldo <span class="anoAtual"></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="../js/Despesa.js"></script>
+    <script src="../js/BD.js"></script>
+    <script src="../js/cadastro.js"></script>
+
+</body>
+
+</html>
