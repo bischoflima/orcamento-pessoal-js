@@ -19,7 +19,13 @@ class BD {
         localStorage.setItem(id, JSON.stringify(despesa));
     }
 
-    recuperarTodosRegistros(){
-        console.log('chegamos aqui já');
+    recuperarTodosRegistros() {
+        let qtdRegistros = parseInt(localStorage.getItem('id'));
+        let despesas = [];
+
+        for (let i = 1; i <= qtdRegistros; i++) {
+            despesas.push(JSON.parse(localStorage.getItem(i)));
+        }
+        return despesas;
     }
 }
