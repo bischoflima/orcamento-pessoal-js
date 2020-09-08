@@ -26,14 +26,14 @@ function isBissexto() {
 
 document.querySelector("#dia").addEventListener("click", function () {
     let mes = document.querySelector(".mes").options[document.querySelector(".mes").selectedIndex].value;
-    
-    if ( mes == 1) {
+
+    if (mes == 1) {
         if (isBissexto()) {
             document.getElementById("dia").max = "29";
         } else {
             document.getElementById("dia").max = "28";
         }
-    }else {
+    } else {
         document.getElementById("dia").max = "31";
     }
 });
@@ -43,8 +43,22 @@ document.querySelector("#dia").addEventListener("click", function () {
 
 let bd = new BD();
 
-function carregaListaDespesas(){
-    bd.recuperarTodosRegistros();
+function carregaListaDespesas() {
+    let registros = bd.recuperarTodosRegistros();
+    let tabela = document.querySelector(".tabela");
+
+    for (let i in registros) {
+        let data = `${registros[i]._dia} de ${registros[i]._mes} de ${registros[i]._ano}`;
+        let texto = `<tr>`
+        texto += `<td>${data}</td>`
+        texto += `<td>${registros[i]._tipo}</td>`
+        texto += `<td>${registros[i]._descricao}</td>`
+        texto += `<td>${registros[i]._valor}</td>`
+        texto += `</tr>`
+
+        tabela.innerHTML += texto;
+        
+    }
 }
 
 document.addEventListener('load', carregaListaDespesas());
