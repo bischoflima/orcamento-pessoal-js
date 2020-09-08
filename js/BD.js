@@ -24,6 +24,9 @@ class BD {
         let despesas = [];
 
         for (let i = 1; i <= qtdRegistros; i++) {
+            if (localStorage.getItem(i) === null)
+                continue;
+                
             despesas.push(JSON.parse(localStorage.getItem(i)));
         }
         return despesas;
