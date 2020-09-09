@@ -8,6 +8,13 @@ class Despesa {
         this._valor = valor;
     }
 
+    vazio(){
+        for (let i in this) {
+            if (this[i] != undefined || this[i] != null || this[i] != '') return true;
+        }
+        return false;
+    }
+
     validarDados() {
         for (let i in this) {
             if (this[i] == undefined || this[i] == null || this[i] == '') return false;

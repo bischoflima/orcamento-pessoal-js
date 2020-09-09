@@ -43,13 +43,16 @@ document.querySelector("#dia").addEventListener("click", function () {
 
 let bd = new BD();
 
-function carregaListaDespesas() {
-    let registros = bd.recuperarTodosRegistros();
+function carregaListaDespesas(registros = []) {
     let tabela = document.querySelector(".tabela");
+    tabela.innerHTML = '';
+
+    if (registros.length == 0)
+        registros = bd.recuperarTodosRegistros();
 
     for (let i in registros) {
         let data = `${registros[i]._dia} de ${registros[i]._mes} de ${registros[i]._ano}`;
-        let texto = `<tr>`
+        let texto = `<tr class="s10">`
         texto += `<td>${data}</td>`
         texto += `<td>${registros[i]._tipo}</td>`
         texto += `<td>${registros[i]._descricao}</td>`
@@ -57,8 +60,31 @@ function carregaListaDespesas() {
         texto += `</tr>`
 
         tabela.innerHTML += texto;
-        
+
     }
 }
 
-document.addEventListener('load', carregaListaDespesas());
+function pesquisarDespesa() {
+
+    let ano = document.querySelector(".anos");
+    let mes = document.querySelector(".mes");
+    let dia = document.querySelector("#dia");
+    let tipo = document.querySelector(".tipo");
+    let descricao = document.querySelector("#descricao");
+    let valor = document.querySelector("#valor");
+
+    let despesa = new Despesa(ano.value, mes.value, dia.value, tipo.value, descricao.value, valor.value);
+
+    carregaListaDespesas(bd.pesquisar(despesa));
+    ano.value = '';
+    mes.value = '';
+    dia.value = '';
+    tipo.value = '';
+    descricao.value = '';
+    valor.value = '';
+
+}
+
+document.addEventListener('load', carregaListaDespesas(bd.recuperarTodosRegistros()));
+
+document.querySelector('#pesquisar').addEventListener('click', pesquisarDespesa);

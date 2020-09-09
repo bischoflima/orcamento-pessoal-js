@@ -26,9 +26,42 @@ class BD {
         for (let i = 1; i <= qtdRegistros; i++) {
             if (localStorage.getItem(i) === null)
                 continue;
-                
+
             despesas.push(JSON.parse(localStorage.getItem(i)));
         }
         return despesas;
+    }
+
+    pesquisar(despesa) {
+
+        let despesasFiltradas = this.recuperarTodosRegistros();
+        // filter de ano, mes, dia, tipo, descricao, valor
+
+        if(despesa._ano != ''){
+            despesasFiltradas = despesasFiltradas.filter((d) => { return d._ano == despesa._ano });
+        }
+
+        if(despesa._dia != ''){
+            despesasFiltradas = despesasFiltradas.filter((d) => { return d._dia == despesa._dia });
+        }
+
+        if(despesa._mes != ''){
+            despesasFiltradas = despesasFiltradas.filter((d) => { return d._mes == despesa._mes });
+        }
+
+        if(despesa._tipo != ''){
+            despesasFiltradas = despesasFiltradas.filter((d) => { return d._tipo == despesa._tipo })
+        }
+
+        if (despesa._valor != ''){
+            despesasFiltradas = despesasFiltradas.filter((d) => { return d._valor == despesa._valor });
+        }
+
+        if (despesa._descricao != ''){
+            despesasFiltradas = despesasFiltradas.filter((d) => { return d._descricao == despesa._descricao })
+        }
+        
+
+        return despesasFiltradas;
     }
 }
