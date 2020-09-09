@@ -1,6 +1,10 @@
 let dataAtual = new Date();
 document.querySelector(".anoAtual").innerHTML = `${dataAtual.getFullYear()}`;
 
+$(document).ready(function () {
+    $('.modalSucesso').modal();
+});
+
 function insereAnos() {
     let anos = document.querySelector(".anos");
 
@@ -57,11 +61,18 @@ function carregaListaDespesas(registros = []) {
         texto += `<td>${registros[i]._tipo}</td>`
         texto += `<td>${registros[i]._descricao}</td>`
         texto += `<td>${registros[i]._valor}</td>`
+        texto += `<td><div class="waves-effect waves-red btn white" onclick="removeDespesa(${registros[i].id})"><i class="material-icons red-text text-lighten-1  delete ">delete</i></td>`
         texto += `</tr>`
 
         tabela.innerHTML += texto;
 
     }
+}
+
+function removeDespesa(id){
+    bd.removerRegistro(id);
+    M.Modal.getInstance($('#modalSucesso')).open();
+    carregaListaDespesas();
 }
 
 function pesquisarDespesa() {

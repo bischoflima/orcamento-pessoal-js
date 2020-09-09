@@ -4,6 +4,7 @@ document.querySelector(".anoAtual").innerHTML = `${dataAtual.getFullYear()}`;
 $(document).ready(function () {
     $('.modalErro').modal();
 });
+
 $(document).ready(function () {
     $('.modalSucesso').modal();
 });

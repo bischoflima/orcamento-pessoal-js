@@ -26,10 +26,17 @@ class BD {
         for (let i = 1; i <= qtdRegistros; i++) {
             if (localStorage.getItem(i) === null)
                 continue;
-
-            despesas.push(JSON.parse(localStorage.getItem(i)));
+            let despesa = JSON.parse(localStorage.getItem(i));
+            despesa.id = i;
+            despesas.push(despesa);
         }
         return despesas;
+    }
+
+    removerRegistro(id = undefined){
+        if(id){
+            localStorage.removeItem(`${id}`);
+        }
     }
 
     pesquisar(despesa) {
